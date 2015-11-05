@@ -38,13 +38,16 @@ function getSearchResultsStream() {
         pageIndex++;
 
         if (pageIndex < 10) {
+            // Let's keep going until 10 pages of search results
+            // are provided...
             setTimeout(nextPage, 1000);
         } else {
+            // Let's let the caller know that there are no more search results
             ee.emit('end');
         }
     }
 
-    // Waut until the next tick to provide the first page of saerch
+    // Waut until the next tick to provide the first page of search
     // results so that the calling code has time to attach the
     // event listeners
     process.nextTick(nextPage);
