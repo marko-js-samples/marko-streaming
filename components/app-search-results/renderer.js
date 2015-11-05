@@ -47,7 +47,7 @@ function getSearchResultsStream() {
         }
     }
 
-    // Waut until the next tick to provide the first page of search
+    // Wait until the next tick to provide the first page of search
     // results so that the calling code has time to attach the
     // event listeners
     process.nextTick(nextPage);
